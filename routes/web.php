@@ -25,18 +25,13 @@ Route::get('/', function () {
 
     $user = User::find(2);
     // dd(auth());
-    $invoice = $user->invoices();
+   
 
-    return view('home',['invoices'=>$invoice]);
+    return view('home');
 });
 
 
-Route::get('user/invoice/{invoice}', function (Request $request, $invoiceId) {
-    return $request->user()->downloadInvoice($invoiceId, [
-        'vendor' => 'Your Company',
-        'product' => 'Your Product',
-    ]);
-});
+
 
 Auth::routes();
 
